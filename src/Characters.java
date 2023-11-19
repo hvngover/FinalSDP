@@ -3,7 +3,8 @@ import ObserverPattern.Observer;
 import StrategyPattern.WeaponBehavior;
 
 abstract public class Characters implements Observer {
-
+    private final GameSystem game;
+    private String username;
     private int health;
     private int mana;
     private int experiencePoints;
@@ -21,11 +22,9 @@ abstract public class Characters implements Observer {
         this.weaponBehavior = weaponBehavior;
     }
 
-    private final String username;
-    private final GameSystem game;
-
     public Characters(GameSystem game, String username, int initialHealth, int initialMana, int initialExperience) {
-        super(game, username);
+        this.game = game;
+        this.username = username;
         this.health = initialHealth;
         this.mana = initialMana;
         this.experiencePoints = initialExperience;
